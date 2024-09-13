@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="baner">
+        <center><a href="homepage.html" ><img src="ba.jpg"></a></center>
+    </div>
+    <div class="columns">
+        <div class="left-column">
+            <a href="index.html"><p>MENU</p></a>
+            <a href="opis.html"><p>Opis</p></a>
+            <a href="jakatoliczba.html"><p>Jaka to liczba?</p></a>
+            <a href="calkowite.html"><p>Liczby całkowite z zakresu</p></a>
+        </div>
+        <div class="right-column">
+            <p>Podaj liczbe poczatkowa</p>
+            <input type="number" id="liczba.p" placeholder="Wpisz liczbę"></input>
+            <p>Podaj liczbe koncowa</p>
+            <input type="number" id="liczba.k" placeholder="Wpisz liczbę"></input>
+            <button onclick="ciagliczb()">OK</button>
+            <p id="wynik"></p>
+            <script>
+                function ciagliczb() {
+                    let liczbaPoczatkowa = parseInt(document.getElementById("liczba.p").value);
+                    let liczbaKoncowa = parseInt(document.getElementById("liczba.k").value);
+                    let wynik = document.getElementById("wynik");
+                    
+                    if (isNaN(liczbaPoczatkowa) || isNaN(liczbaKoncowa)) {
+                        wynik.textContent = "Podaj prawidłowe liczby!";
+                        return;
+                    }
+                
+                    let ciag = [];
+                    
+                    if (liczbaPoczatkowa < liczbaKoncowa) {
+                        for (let i = liczbaPoczatkowa; i <= liczbaKoncowa; i++) {
+                            ciag.push(i);
+                        }
+                    } else {
+                        for (let i = liczbaPoczatkowa; i >= liczbaKoncowa; i--) {
+                            ciag.push(i);
+                        }
+                    }
+                    
+                    wynik.textContent = `Ciąg liczb: ${ciag.join(", ")}`;
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>

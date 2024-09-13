@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="baner">
+        <center><a href="homepage.html" ><img src="baner.jpg"></a></center>
+    </div>
+    <div class="columns">
+        <div class="left-column">
+            <a href="index.html"><p>MENU</p></a>
+            <a href="opis.html"><p>Opis</p></a>
+            <a href="jakaliczba.html"><p>Jaka to liczba?</p></a>
+            <a href="calkowite.html"><p>Liczby całkowite z zakresu</p></a>
+        </div>
+        <div class="right-column">
+            <p>Podaj liczbe</p>
+            <input type="number" id="liczba" placeholder="Wpisz liczbę całkowitą"></input>
+            <button onclick="liczba()">OK</button>
+            <p id="wynik"></p>
+            <script>
+                function liczba() {
+                    let liczba = document.getElementById("liczba").value;
+                    let wynik = document.getElementById("wynik");
+                
+                    if (liczba === "") {
+                        wynik.textContent = "Nie podano żadnej liczby.";
+                        return;
+                    }
+                
+                    liczba = parseInt(liczba);
+                
+                    if (isNaN(liczba)) {
+                        wynik.textContent = "To nie jest poprawna liczba całkowita!";
+                    } else if (liczba > 0) {
+                        wynik.textContent = `Liczba ${liczba} jest dodatnia.`;
+                    } else if (liczba < 0) {
+                        wynik.textContent = `Liczba ${liczba} jest ujemna.`;
+                    } else {
+                        wynik.textContent = `Liczba ${liczba} to zero.`;
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
